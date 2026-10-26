@@ -151,7 +151,6 @@ export const authService = {
       skipAuthRedirect: true,
       headers: {
         "Content-Type": "application/json",
-        "ngrok-skip-browser-warning": "true",
       },
       });
       const result = assertApiSuccess(extractData(response), "Login failed.");

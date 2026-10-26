@@ -23,8 +23,7 @@ const apiOrigin = () => {
 }
 
 // In dev, files on the API host are requested same-origin and go through the
-// Vite /uploads proxy (vite.config.js), which adds the ngrok-skip-browser-warning
-// header an <img> request can't send. Production uses the backend URL as-is.
+// Vite /uploads proxy (vite.config.js). Production uses the backend URL as-is.
 const proxiedUploadPath = (url) => {
   if (!import.meta.env.DEV) return null
   try {

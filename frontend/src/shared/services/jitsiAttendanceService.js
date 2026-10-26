@@ -33,7 +33,6 @@ export const jitsiAttendanceService = {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
-          'ngrok-skip-browser-warning': 'true',
           ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
         body: JSON.stringify(toEventDto(payload)),

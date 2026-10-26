@@ -45,7 +45,7 @@ export function describeApprovalError(error, studentId) {
   const data = error?.response?.data;
   const backendMessage = typeof data === "string" ? data : data?.message ?? data?.Message ?? data?.title;
   if (!error?.response) {
-    return { status: null, alreadyApproved: false, message: "Can't reach the backend. The ngrok tunnel may be offline. Nothing was approved; try again when it's back." };
+    return { status: null, alreadyApproved: false, message: "Can't reach the backend. Check the server connection and try again." };
   }
   const byStatus = {
     400: `The backend rejected the request${backendMessage ? `: ${backendMessage}` : "."}`,

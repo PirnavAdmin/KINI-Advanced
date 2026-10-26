@@ -26,16 +26,13 @@ export default defineConfig(({ command, mode }) => {
     server: {
       port: 5173,
       strictPort: true,
-      // Uploaded files (profile photos) are plain <img> requests, which can't
-      // send the ngrok-skip-browser-warning header the API client uses, so a
-      // free ngrok tunnel answers them with its HTML warning page. In dev they
-      // are served same-origin through this proxy, which adds the header.
+      // Uploaded files (profile photos) are served same-origin through this
+      // proxy during development.
       // See resolvePhotoUrl in src/shared/services/profilePhotoService.js.
       proxy: apiOrigin ? {
         '/uploads': {
           target: apiOrigin,
           changeOrigin: true,
-          headers: { 'ngrok-skip-browser-warning': 'true' },
         },
       } : undefined,
     },
