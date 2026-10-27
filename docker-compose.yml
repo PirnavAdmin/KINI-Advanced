@@ -11,6 +11,9 @@ services:
       ASPNETCORE_ENVIRONMENT: Production
       ConnectionStrings__DefaultConnection: Server=${MYSQL_HOST};Port=${MYSQL_PORT};Database=${MYSQL_DATABASE};User=${MYSQL_USER};Password=${MYSQL_PASSWORD};
       Jwt__Key: ${JWT_KEY}
+    ports:
+      - "5000:5000"
+
   frontend:
     build:
       context: .
@@ -20,8 +23,5 @@ services:
     restart: unless-stopped
     ports:
       - "3000:80"
-      - "443:443"
-    volumes:
-      - ./certs:/etc/nginx/certs:ro
     depends_on:
       - backend
