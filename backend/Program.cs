@@ -137,7 +137,8 @@ builder.Services.AddCors(options =>
 
             .WithOrigins(
 
-                "http://3.7.215.34:3000"
+                "https://kiniedx.com",
+                "https://www.kiniedx.com"
 
             )
 
